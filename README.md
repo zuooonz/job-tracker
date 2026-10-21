@@ -1,5 +1,7 @@
 # 本地求职跟踪台
 
+[![CI](https://github.com/zuooonz/job-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/zuooonz/job-tracker/actions/workflows/ci.yml)　[在线演示](https://zuooonz.github.io/job-tracker/)
+
 ## 简介
 
 一个可在本机运行的求职跟踪工具。它把 BOSS 直聘、猎聘的岗位采集、筛选、评价、沟通记录和申请进度放在一个本地界面中。求职方向、候选人画像和筛选规则均由配置决定；公开配置只是通用示例。
@@ -60,6 +62,8 @@ cp .env.example .env
 ```
 
 重置演示数据：`./scripts/manage.sh demo --reset`。停止服务：`./scripts/manage.sh stop`；查看状态：`./scripts/manage.sh status`。
+
+也可访问[在线只读演示](https://zuooonz.github.io/job-tracker/)，内容全部为虚构数据；演示站不保存修改。
 
 ## 日常使用
 

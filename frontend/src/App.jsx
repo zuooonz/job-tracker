@@ -4,7 +4,7 @@ import SettingsModal from './components/SettingsModal.jsx';
 import FunnelSidebar from './components/Sidebar.jsx';
 import JobItem from './components/JobItem.jsx';
 import { Icons } from './components/icons.jsx';
-import { apiFetch, fetchJson, getToken, saveToken, UnauthorizedError } from './api.js';
+import { apiFetch, fetchJson, getToken, saveToken, UnauthorizedError, STATIC_DEMO } from './api.js';
 
 // 分页：首屏 20 条，滚动追加每次 50 条
 const INITIAL_PAGE = 20;
@@ -117,7 +117,7 @@ export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [evaluationSchedule, setEvaluationSchedule] = useState(null);
   const [token, setToken] = useState(() => getToken());
-  const [authStatus, setAuthStatus] = useState('unknown'); // unknown | off | on
+  const [authStatus, setAuthStatus] = useState(() => STATIC_DEMO ? 'off' : 'unknown'); // unknown | off | on
   const [resumeJobs, setResumeJobs] = useState(() => new Set()); // 已有定制简历的岗位 id
   const [loadError, setLoadError] = useState('');
   const [appending, setAppending] = useState(false);
@@ -412,6 +412,7 @@ export default function App() {
 
   return (
     <>
+      {STATIC_DEMO && <div className="static-demo-banner">在线演示 · 全部为虚构数据 · 只读</div>}
       {sidebarOpen && <div className="sidebar-backdrop" onClick={() => setSidebarOpen(false)} />}
       <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="sidebar-header"><span>岗位筛选台</span><button className="mobile-close-btn" onClick={() => setSidebarOpen(false)}><Icons.Close /></button></div>

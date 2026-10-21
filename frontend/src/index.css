@@ -153,6 +153,18 @@ body {
   overflow: hidden;
 }
 
+.static-demo-banner {
+  position: fixed;
+  z-index: 2000;
+  inset: 0 0 auto;
+  padding: 5px 12px;
+  color: #fff;
+  background: #315b78;
+  text-align: center;
+  font-size: 12px;
+  line-height: 18px;
+}
+
 #root {
   display: flex;
   height: 100vh;
@@ -161,6 +173,11 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+}
+
+#root:has(.static-demo-banner) {
+  top: 28px;
+  height: calc(100vh - 28px);
 }
 
 /* ---------------------------------------------------------------------------
