@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="四叶草">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="36%" r="90%">
+      <stop offset="0%" stop-color="#26262a"/>
+      <stop offset="100%" stop-color="#060606"/>
+    </radialGradient>
+    <!-- 白色叶片：叶基亮白 → 叶缘微灰，随叶片旋转 -->
+    <linearGradient id="leafWhite" x1="0" y1="0.92" x2="0" y2="0">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="72%" stop-color="#f3f3f0"/>
+      <stop offset="100%" stop-color="#d6d6d1"/>
+    </linearGradient>
+    <!-- 茎：上亮下暗 -->
+    <linearGradient id="stemGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f7f7f5"/>
+      <stop offset="100%" stop-color="#c2c2bd"/>
+    </linearGradient>
+    <filter id="blur" x="-40%" y="-40%" width="180%" height="190%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+
+    <!-- 叶片 A：标准型（用于右上、右下） -->
+    <g id="leafA">
+      <path d="M0 6 C-58 -118 -170 -240 -146 -318 C-126 -358 -34 -356 -2 -286 C32 -354 126 -350 142 -312 C162 -236 56 -118 0 6 Z" fill="url(#leafWhite)"/>
+      <path d="M0 16 C-38 -86 -114 -196 -110 -270" stroke="#c0c0ba" stroke-width="11" fill="none" stroke-linecap="round" opacity="0.6"/>
+      <path d="M-2 -58 C-34 -108 -74 -154 -102 -198 M4 -56 C36 -106 72 -150 98 -196" stroke="#c0c0ba" stroke-width="9" fill="none" stroke-linecap="round" opacity="0.42"/>
+    </g>
+    <!-- 叶片 B：略宽扁（用于左上） -->
+    <g id="leafB">
+      <path d="M0 4 C-66 -112 -182 -232 -160 -312 C-142 -354 -46 -352 -8 -282 C38 -352 140 -348 154 -306 C174 -228 64 -110 0 4 Z" fill="url(#leafWhite)"/>
+      <path d="M0 14 C-40 -88 -122 -198 -122 -272" stroke="#c0c0ba" stroke-width="11" fill="none" stroke-linecap="round" opacity="0.58"/>
+      <path d="M-2 -56 C-38 -108 -82 -154 -110 -200 M4 -54 C40 -104 78 -148 104 -194" stroke="#c0c0ba" stroke-width="9" fill="none" stroke-linecap="round" opacity="0.4"/>
+    </g>
+    <!-- 叶片 C：小而圆（用于左下） -->
+    <g id="leafC">
+      <path d="M0 2 C-52 -106 -154 -224 -134 -306 C-120 -342 -36 -340 -6 -278 C30 -342 118 -338 132 -302 C150 -226 50 -104 0 2 Z" fill="url(#leafWhite)"/>
+      <path d="M0 12 C-34 -84 -104 -192 -106 -266" stroke="#c0c0ba" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.58"/>
+      <path d="M-2 -52 C-32 -102 -68 -148 -94 -194 M4 -50 C34 -100 64 -146 88 -190" stroke="#c0c0ba" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.4"/>
+    </g>
+  </defs>
+
+  <rect width="1024" height="1024" rx="224" fill="url(#bg)"/>
+
+  <!-- 整体柔和投影 -->
+  <g filter="url(#blur)" opacity="0.5">
+    <ellipse cx="512" cy="648" rx="310" ry="215" fill="#000000"/>
+  </g>
+
+  <!-- 四片叶片：角度、大小、形状各不相同，避免完美对称 -->
+  <g>
+    <use href="#leafB" transform="translate(516 508) rotate(-36) scale(1.06)"/>
+    <use href="#leafA" transform="translate(506 512) rotate(44) scale(0.94)"/>
+    <use href="#leafC" transform="translate(514 514) rotate(224) scale(0.88)"/>
+    <use href="#leafA" transform="translate(508 508) rotate(132) scale(1.02)"/>
+  </g>
+
+  <!-- 茎：自然弯向一侧，从中心向下延伸 -->
+  <path d="M516 540 C522 636 500 746 460 866" fill="none" stroke="url(#stemGrad)" stroke-width="48" stroke-linecap="round"/>
+  <path d="M516 540 C522 636 500 746 460 866" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- 中心节点 -->
+  <circle cx="512" cy="512" r="30" fill="#0e0e0e"/>
+  <circle cx="512" cy="512" r="30" fill="none" stroke="#ffffff" stroke-width="7" opacity="0.3"/>
+</svg>

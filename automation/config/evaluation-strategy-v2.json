@@ -1,0 +1,58 @@
+{
+  "version": "evaluation-strategy-v2-example",
+  "prompt_version": "evaluation-prompt-v3",
+  "profile_file": "candidate-profile-v2.json",
+  "dimensions": {
+    "domain_task_alignment": {
+      "weight": 25,
+      "label": "领域与实际任务匹配"
+    },
+    "evidence_transferability": {
+      "weight": 25,
+      "label": "已有证据与能力迁移"
+    },
+    "hard_requirements": {
+      "weight": 20,
+      "label": "硬门槛满足程度"
+    },
+    "seniority_scope": {
+      "weight": 15,
+      "label": "职级、职责范围与组织经验"
+    },
+    "career_value": {
+      "weight": 10,
+      "label": "职业主线与成长价值"
+    },
+    "practical_constraints": {
+      "weight": 5,
+      "label": "地点、薪资与现实约束"
+    }
+  },
+  "thresholds": {
+    "priority": 80,
+    "normal": 65,
+    "opportunity": 45,
+    "minimum_confidence_for_priority": 70,
+    "incomplete_jd_confidence_cap": 50,
+    "critical_gap_score_cap": 54
+  },
+  "input": {
+    "max_jd_chars": 8000,
+    "min_jd_chars": 80,
+    "include_benefits": false,
+    "include_company_registration": false
+  },
+  "api": {
+    "model": "deepseek-v4-flash",
+    "temperature": 0.1,
+    "max_tokens": 6000,
+    "timeout_ms": 90000,
+    "max_retries": 2,
+    "retry_base_ms": 1500
+  },
+  "batch": {
+    "default_limit": 10,
+    "max_limit": 100,
+    "delay_ms": 500
+  }
+}

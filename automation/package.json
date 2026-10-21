@@ -1,0 +1,27 @@
+{
+  "name": "job-tracker-automation",
+  "private": true,
+  "version": "1.7.0",
+  "description": "BOSS and Liepin collection adapters for the local job tracker",
+  "scripts": {
+    "collect": "node src/cli.js",
+    "collect-plan": "node src/collect-plan.js",
+    "enrich-url": "node src/enrich-url.js",
+    "inspect-fields": "node src/inspect-page-fields.js",
+    "audit-samples": "node src/audit-samples.js",
+    "evaluate": "node src/evaluate-jobs.js",
+    "evaluation-worker": "node src/evaluation-worker.js",
+    "test": "JOB_TRACKER_CONFIG=example node --test test/*.test.js",
+    "check": "node --check src/cli.js && node --check src/collect-plan.js && node --check src/browser.js && node --check src/browser-mode.js && node --check src/local-headed-login.js && node --check src/api.js && node --check src/access-budget.js && node --check src/prefilter.js && node --check src/screening.js && node --check src/field-quality.js && node --check src/job-payload.js && node --check src/enrich-url.js && node --check src/inspect-page-fields.js && node --check src/audit-samples.js && node --check src/evaluate-jobs.js && node --check src/evaluation-worker.js && node --check src/chat.js && node --check src/apply-records.js && node --check src/cdp-page.js && node --check src/boss-chat-snapshot.js && node --check src/boss-chat-full-list.js && node --check src/chat-pipeline.js && node --check src/chat-summarize.js && node --check src/chat-shared.js && node --check src/llm-config.js && node --check src/reply-draft.js && node --check src/boss-chat-monitor.js && node --check src/qr-relay.js && node --check src/qr-relay-liepin.js && node --check src/verify-job-status.js && node --check src/adapters/boss.js && node --check src/adapters/liepin.js",
+    "boss-chat-snapshot": "node src/boss-chat-snapshot.js",
+    "boss-chat-full-list": "node src/boss-chat-full-list.js",
+    "chat-pipeline": "node src/chat-pipeline.js",
+    "local-headed-login": "node src/local-headed-login.js",
+    "chat-summarize": "node src/chat-summarize.js",
+    "boss-chat-monitor": "node src/boss-chat-monitor.js",
+    "verify-status": "node src/verify-job-status.js"
+  },
+  "dependencies": {
+    "tesseract.js": "^7.0.0"
+  }
+}

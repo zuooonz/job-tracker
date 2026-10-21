@@ -1,0 +1,16 @@
+{
+  "version": "search-rules-v1-example",
+  "minimumMonthlySalaryMaxK": 0,
+  "hardIrrelevantTitleTerms": [],
+  "hardIrrelevantDetailTerms": [],
+  "hardExperienceTerms": [],
+  "specialCaseRules": [],
+  "downrankTitleTerms": [],
+  "downrankPenalty": 0,
+  "hardTitleBlacklist": [],
+  "positiveTitleTerms": ["产品经理", "项目经理", "数据分析", "工程师", "设计师", "研究员"],
+  "domainTerms": ["产品", "数据", "软件", "技术", "研究", "服务", "工程", "运营"],
+  "taskTerms": ["产品", "项目", "数据", "设计", "分析", "研究", "开发", "运营"],
+  "preferredLocations": [],
+  "detailPacingMs": { "min": 8000, "max": 15000 }
+}

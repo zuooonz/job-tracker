@@ -1,0 +1,76 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/.vinext/
+/out/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+!.env.example
+
+# vercel
+.vercel
+
+/dist/
+/.wrangler/
+/outputs/
+/work/
+
+# local tracker runtime
+/frontend/node_modules/
+/frontend/dist/
+/data/
+/logs/
+/.run/
+/automation/node_modules/
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# 部署工具本地密钥（deploy.py env init 生成，禁止提交）
+/contrib/server.env
+
+# 旧设计原型（岗位筛选台 · 设计原型），不纳入版本管理
+/test/
+.idea/
+
+# ---------------------------------------------------------------------------
+# 脱敏：本人真实配置与运行数据只留在本机
+# ---------------------------------------------------------------------------
+/automation/config/private/
+*.sqlite3
+*.sqlite3-*
+*.db
+/automation/node_modules
+
+# Claude Code 本机设置
+/.claude/
+
+# optional self-hosting secrets
+contrib/server.env

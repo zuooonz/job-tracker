@@ -1,0 +1,20 @@
+[Unit]
+Description=Jobs Tracker BOSS near-real-time chat monitor
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=@ROOT@/automation
+EnvironmentFile=@ROOT@/.env
+EnvironmentFile=-@ROOT@/.run/boss-monitor.env
+Environment=BOSS_MONITOR_START_HOUR=9
+Environment=BOSS_MONITOR_END_HOUR=21
+Environment=PATH=@NODE_DIR@:/usr/local/bin:/usr/bin:/bin
+ExecStart=@NODE_BIN@ @ROOT@/automation/src/boss-chat-monitor.js --interval=90
+Restart=on-failure
+RestartSec=120
+TimeoutStopSec=20
+
+[Install]
+WantedBy=default.target

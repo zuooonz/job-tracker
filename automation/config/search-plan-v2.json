@@ -1,0 +1,150 @@
+{
+  "version": "search-plan-v2-example",
+  "source_of_truth": [
+    "本文件为通用公开示例；请在设置中按个人情况配置检索计划。"
+  ],
+  "based_on_search_runs": [],
+  "execution_policy": {
+    "order": [
+      "A",
+      "B",
+      "C"
+    ],
+    "initial_pages_per_query": 1,
+    "initial_detail_limit": 5,
+    "stop_when_duplicate_rate_gte": 0.5,
+    "promote_when_retained_rate_gte": 0.6,
+    "target_new_jobs_per_direction_platform": {
+      "A": 10,
+      "B": 7,
+      "C": 5
+    },
+    "stop_variants_after_consecutive_low_yield": 2,
+    "low_yield_new_rate_lt": 0.2,
+    "notes": [
+      "每个平台、每个关键词独立建立 search_run",
+      "先执行每个方向的 seed 查询，再根据真实岗位称谓扩展 variants",
+      "同义词结果高度重合时只保留新增率更高的一个",
+      "C 级方向不与 A 级方向争夺同一批详情访问额度"
+    ]
+  },
+  "tested_queries": [
+    {
+      "platform": "boss",
+      "keyword": "产品经理",
+      "direction": "product_role",
+      "decision": "keep"
+    },
+    {
+      "platform": "liepin",
+      "keyword": "数据分析师",
+      "direction": "analysis_role",
+      "decision": "keep"
+    },
+    {
+      "platform": "boss",
+      "keyword": "应用项目经理",
+      "direction": "technology_role",
+      "decision": "keep"
+    }
+  ],
+  "directions": [
+    {
+      "id": "product_role",
+      "priority": "A",
+      "label": "产品岗位",
+      "description": "产品规划、设计与交付类职位",
+      "boss": {
+        "seed": [
+          "产品经理",
+          "产品负责人",
+          "产品专员"
+        ],
+        "variants": [
+          "产品规划",
+          "产品运营",
+          "产品设计",
+          "产品交付"
+        ]
+      },
+      "liepin": {
+        "seed": [
+          "产品经理",
+          "产品负责人",
+          "产品专员"
+        ],
+        "variants": [
+          "产品规划",
+          "产品运营",
+          "产品设计",
+          "产品交付"
+        ]
+      }
+    },
+    {
+      "id": "analysis_role",
+      "priority": "B",
+      "label": "分析岗位",
+      "description": "业务、数据与研究分析类职位",
+      "boss": {
+        "seed": [
+          "数据分析师",
+          "业务分析师",
+          "商业分析"
+        ],
+        "variants": [
+          "经营分析",
+          "用户分析",
+          "策略分析",
+          "数据研究"
+        ]
+      },
+      "liepin": {
+        "seed": [
+          "数据分析师",
+          "业务分析师",
+          "商业分析"
+        ],
+        "variants": [
+          "经营分析",
+          "用户分析",
+          "策略分析",
+          "数据研究"
+        ]
+      }
+    },
+    {
+      "id": "technology_role",
+      "priority": "C",
+      "label": "技术应用岗位",
+      "description": "技术、工程与应用落地类职位",
+      "boss": {
+        "seed": [
+          "应用项目经理",
+          "解决方案工程师",
+          "技术产品经理"
+        ],
+        "variants": [
+          "技术咨询",
+          "实施顾问",
+          "应用工程师",
+          "解决方案顾问"
+        ]
+      },
+      "liepin": {
+        "seed": [
+          "应用项目经理",
+          "解决方案工程师",
+          "技术产品经理"
+        ],
+        "variants": [
+          "技术咨询",
+          "实施顾问",
+          "应用工程师",
+          "解决方案顾问"
+        ]
+      }
+    }
+  ],
+  "disabled_queries": []
+}

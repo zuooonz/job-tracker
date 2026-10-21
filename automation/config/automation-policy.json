@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "daily_caps": {
+    "boss": { "detail_opens": 80, "chat_opens": 200 },
+    "liepin": { "detail_opens": 80, "chat_opens": 60 }
+  },
+  "cooldown_minutes": 60
+}
